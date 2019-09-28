@@ -37,7 +37,7 @@ for test in split_sentence:
     sent_len += len(test_sent)
 
 #Count number of sentences directly from split_sentence
-#**Will not work on paragraph_2.txt
+#**Will not work on paragraph_2.txt***
 #sentence_count = len(split_sentence)
 
 
@@ -68,6 +68,7 @@ word_count = len(split_word)
 tot_char_count = 0
 char_counts = []
 for word in split_word:
+    # ***This counts hyphenates words and words with apostrophies as one single word***
     #Remove all non-alphabetical characters, store in new_word variable
     new_word = re.sub('[^A-Za-z0-9]+', '', word)
     #Append the length of the word (with only alphabetical characters)
@@ -83,10 +84,15 @@ avg_char_count = round(tot_char_count/len(char_counts),1)
 print("Paragraph Analysis")
 print("-----------------")
 print(f"Approximate Word Count: {word_count}")
+
+#***********For paragraph 1 and  passage_text*************
 #print(f"Approximate Sentence Count: {sentence_count}")
-#*****For paragraph 2*******
+#*********************************************************
+
+#*****************For all paragraphs*****************
 print(f"Approximate Sentence Count: {sent_len}")
-#**********
+#****************************************************
+
 print(f"Average Letter Count: {avg_char_count}")
 print(f"Average Sentence Length: {avg_words_perSent}")
 

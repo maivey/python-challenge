@@ -76,7 +76,12 @@ with open(csvpath, newline='') as csvfile:
         elif diff_amt_int < greatest_dec:
             greatest_dec = diff_amt_int
             greatest_dec_month = line[0]
-            
+
+#Find month (ex Jan for January) and year in format YYYY            
+month_inc = greatest_inc_month[0:3]
+year_inc = f"20{greatest_inc_month[4:]}"
+month_dec = greatest_dec_month[0:3]
+year_dec = f"20{greatest_dec_month[4:]}"
 
 #Calculate average change
 avg_change = sum(diff_amt)/len(diff_amt)
@@ -87,24 +92,20 @@ print("----------------------------------------------------")
 print(f"Total Months: {line_num}")
 print(f"Total: ${tot_amt}")
 print(f"Average Change: ${round(avg_change,2)}")
-print(f"Greatest Increase in Profits: {greatest_inc_month} (${greatest_inc})")
-print(f"Greatest Decrease in Profits: {greatest_dec_month} (${greatest_dec})")
+print(f"Greatest Increase in Profits: {month_inc}-{year_inc} (${greatest_inc})")
+print(f"Greatest Decrease in Profits: {month_dec}-{year_dec} (${greatest_dec})")
 
 
 #Print Financial Analysis to text file:
 output_path = os.path.join('output_FinancialAnalysis.txt')
 with open(output_path, 'w', newline='') as text:
-    lines_text = ["Financial Analysis",
-             "\n",
-             "----------------------------------------------------",
-             "\n",
-             "Total Months: " + str(line_num),
-             "\n",
-             "Average Change: $" + str(round(avg_change,2)),
-             "\n",
-             "Greatest Increase in Profits: " + str(greatest_inc_month) + " ($" + str(greatest_inc)+ ")",
-             "\n",
-             "Greatest Decrease in Profits: " + str(greatest_dec_month) + " ($" + str(greatest_dec)+ ")"
+    lines_text = [
+             "Financial Analysis\n",
+             "----------------------------------------------------\n",
+             f"Total Months: {line_num}\n",
+             f"Average Change: $ {str(round(avg_change,2))}\n",
+             f"Greatest Increase in Profits: {month_inc}-{year_inc} (${greatest_inc})\n",
+             f"Greatest Decrease in Profits: {month_dec}-{year_dec} (${greatest_dec})\n"
             ]
     text.writelines(lines_text)
 

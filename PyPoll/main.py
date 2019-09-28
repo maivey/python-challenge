@@ -69,14 +69,11 @@ with open(output_path, 'w', newline='') as text:
     win_cand = 0
 
     #Create list of strings to be written to text file: Title, Total number of votes cast
-    lines_text = ["Election Results",
-             "\n",
-             "---------------------------------------------",
-             "\n",
-             "Total Votes: " + str(line_num),
-             "\n",
-             "---------------------------------------------",
-             "\n"]
+    lines_text = ["Election Results\n",
+             "---------------------------------------------\n",
+             f"Total Votes: {line_num}\n",
+             "---------------------------------------------\n",
+             ]
     #Write lines_text to the text file
     text.writelines(lines_text)
 
@@ -101,8 +98,7 @@ with open(output_path, 'w', newline='') as text:
         1. The candidate
         2. The percentage of votes won
         3. The total number of votes won'''
-        text.write(str(x)+": " + str(perc_cand_3dec) + "% (" + str(count_cand)+")")
-        text.write("\n")
+        text.write(f"{x}: {perc_cand_3dec}% ({count_cand})\n")
 
         #Find the winner of the election based on popular vote:
         if perc_cand > win_cand:
@@ -116,9 +112,7 @@ with open(output_path, 'w', newline='') as text:
     #----------------------------------------------------------
 
     #Write the winner to the text file:
-    text.write("---------------------------------------------")
-    text.write("\n")
-    text.write("Winner: "+str(win_name))
-    text.write("\n")
-    text.write("---------------------------------------------")
+    text.write("---------------------------------------------\n")
+    text.write(f"Winner: {win_name}\n")
+    text.write("---------------------------------------------\n")
 
