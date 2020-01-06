@@ -1,5 +1,14 @@
 # python-challenge
-# PyBank and PyPoll
+# PyBank, PyPoll, PyBoss, PyParagraph
+
+Each folder contains python scripts that take in datasets of various formats, and outputs clean and analyzed information that satisfy the requirements detailed below.
+
+## Prerequisites
+This script requires imports of the following:
+```code
+import os
+import csv
+```
 
 ## PyBank
 
